@@ -7,3 +7,8 @@ Welcome to our Repo. Best team in the game.
 ### Tim Flinn
 <img src="/teamPics/tfHeadshot.jpeg" width="200"/>
 A U.S. Navy veteran of 11 years, he is now an aspiring Azure Developer. He specializes in troubleshooting code and bugfixes.
+
+### Monica Elyse
+<img src="https://ibb.co/dNg7MS" width="200"/>
+
+Army veteran with 7 years of medical assisting experience. Aspiring cloud engineer and creative app developer.
