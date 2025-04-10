@@ -18,3 +18,8 @@ Army veteran with 7 years of medical assisting experience. Aspiring cloud engine
 <img src="teamPics/488572676_651429947869809_7993629724061369302_n.jpg" width="250"/>
 
 10 year submarine veteran with expertise in fault localization and problem solving. Aspiring software engineer.
+
+### Roberto Huie
+<img src="/teamPics/rh-headshot.jpg" width="200"/>
+
+Transitioning Army Officer with 9 years of service. Aspriring Tech leader.
