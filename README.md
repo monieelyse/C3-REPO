@@ -12,3 +12,9 @@ A U.S. Navy veteran of 11 years, he is now an aspiring Azure Developer. He speci
 <a href='https://postimg.cc/ftLWDzTj' target='_blank'><img src='https://i.postimg.cc/ftLWDzTj/110060044.jpg' border='0' alt='110060044'/></a>
 
 Army veteran with 7 years of medical assisting experience. Aspiring cloud engineer and creative app developer.
+
+
+### Justin Falardeau
+<img src="teamPics/488572676_651429947869809_7993629724061369302_n.jpg" width="250"/>
+
+10 year submarine veteran with expertise in fault localization and problem solving
