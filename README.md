@@ -1,2 +1,2 @@
-# Team3Repo
-Repo for Team 3
+# C3-REPO
+Welcome to our Repo. Best team in the game.
