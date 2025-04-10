@@ -23,3 +23,9 @@ Army veteran with 7 years of medical assisting experience. Aspiring cloud engine
 <img src="/teamPics/rh-headshot.jpg" width="200"/>
 
 Transitioning Army Officer with 9 years of service. Aspriring Tech leader.
+
+
+### Tristan Payne
+<img src="/teamPics/tp headshot.jpg" width="200"/>
+
+Transitioning Army officer of 9 years with experience in the Intelligence community. Passionate about solving technical problem sets. 
