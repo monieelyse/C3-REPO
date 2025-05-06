@@ -1,1 +1,1 @@
-
+<a href='https://postimg.cc/wRJcZHm8' target='_blank'><img src='https://i.postimg.cc/wRJcZHm8/generic-trivia-game-image-with-diverse-people.jpg' border='0' alt='generic-trivia-game-image-with-diverse-people'/></a>
