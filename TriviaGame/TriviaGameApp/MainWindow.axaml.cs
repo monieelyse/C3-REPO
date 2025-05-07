@@ -7,6 +7,14 @@ namespace TriviaGameApp
         public MainWindow()
         {
             InitializeComponent();
+
+            MainContent.Content = new StartWindow(this);
+        }
+
+        public void NavigateToTrivia()
+        {
+            //Navigate to trivia screen
+            MainContent.Content = new TriviaUserControl();
         }
     }
 }
