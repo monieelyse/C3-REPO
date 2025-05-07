@@ -2,6 +2,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              x:Class="TriviaGameApp.TriviaUserControl">
 	<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="10">
+		<TextBlock x:Name="TimerTextBlock" Text="Time Left: 30" FontSize="24" HorizontalAlignment="Right" VerticalAlignment="Top" />
 		<TextBlock Text="Trivia Question Goes Here" FontSize="24" HorizontalAlignment="Center" />
 		<Button Content="Answer 1" HorizontalAlignment="Center" />
 		<Button Content="Answer 2" HorizontalAlignment="Center" />
