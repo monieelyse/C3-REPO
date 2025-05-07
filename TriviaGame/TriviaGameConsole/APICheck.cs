@@ -15,10 +15,10 @@ var _questionSet = result.results;
 
 foreach (var q in _questionSet)
 {
-    Console.WriteLine(q.type);
-    Console.WriteLine(q.difficulty);
-    Console.WriteLine(q.question);
-    Console.WriteLine(q.correct_answer);
+    Debug.WriteLine(q.type);
+    Debug.WriteLine(q.difficulty);
+    Debug.WriteLine(q.question);
+    Debug.WriteLine(q.correct_answer);
 
 
 }
