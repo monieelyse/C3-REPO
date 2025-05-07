@@ -10,6 +10,7 @@ namespace TriviaGameApp
     {
         private int _currentQuestionIndex = 0;
         private Question[] _questions;
+        private int _score = 0;
 
         public MainWindow()
         {
@@ -39,9 +40,13 @@ namespace TriviaGameApp
 
         private void LoadQuestion(Question question)
         {
-            var triviaControl = new TriviaUserControl(question);
+            var triviaControl = new TriviaUserControl(question, _currentQuestionIndex +1, _questions.Length,_score);
             triviaControl.AnswerSelected += (s, e) =>
             {
+                if (e is AnswerSelectedEventArgs args && args.IsCorrect)
+                {
+                    _score++;
+                }
                 _currentQuestionIndex++;
                 if (_currentQuestionIndex < _questions.Length)
                 {
@@ -49,7 +54,7 @@ namespace TriviaGameApp
                 }
                 else
                 {
-                    Debug.WriteLine("Trivia complete");
+                    Debug.WriteLine($"Trivia complete, Final Score: {_score}");
                     //TODO: create a game over page that shows final score
                 }
             };

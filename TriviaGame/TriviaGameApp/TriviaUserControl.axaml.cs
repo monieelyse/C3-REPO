@@ -14,7 +14,7 @@ namespace TriviaGameApp
     public partial class TriviaUserControl : UserControl
     {
         private Question _currentQuestion;
-        public event EventHandler? AnswerSelected;
+        public event EventHandler<AnswerSelectedEventArgs>? AnswerSelected;
         private System.Timers.Timer _timer;
         private int _timeLeft = 30;
 
@@ -24,12 +24,16 @@ namespace TriviaGameApp
             InitializeComponent();
         }
 
-        public TriviaUserControl(Question question)
+        public TriviaUserControl(Question question, int questionNumber, int totalQuestions, int score)
         {
             InitializeComponent();
             _currentQuestion = question;
-            LoadQuestion();
 
+            //display question number and score
+            QuestionNumberTextBlock.Text = $"Quesiton {questionNumber} of {totalQuestions}";
+            ScoreTextBlock.Text = $"Score: {score}";
+
+            LoadQuestion();
             StartCountdown();
         }
 
@@ -48,7 +52,7 @@ namespace TriviaGameApp
             //Update the UI on the main thread
             Dispatcher.UIThread.Post(() =>
             {
-                TimerTextBlock.Text = $"Time Left: {_timeLeft}";
+                TimerTextBlock.Text = $"{_timeLeft}";
 
                 if (_timeLeft <= 0)
                 {
@@ -90,19 +94,21 @@ namespace TriviaGameApp
             if (sender is Button button)
             {
                 var selectedAnswer = button?.Content!.ToString();
+                bool isCorrect = selectedAnswer == _currentQuestion.correct_answer;
                 Console.WriteLine($"Selected Answer: {selectedAnswer}");
-                if (selectedAnswer == _currentQuestion.correct_answer)
-                {
-                    Debug.WriteLine("Correct!");
-                }
-                else
-                {
-                    Debug.WriteLine("Incorrect");
-                }
 
                 //trigger event to notify parent control
-                AnswerSelected?.Invoke(this, EventArgs.Empty);
+                AnswerSelected?.Invoke(this, new AnswerSelectedEventArgs(isCorrect));
             }
+        }
+    }
+
+    public class AnswerSelectedEventArgs : EventArgs
+    {
+        public bool IsCorrect { get; }
+        public AnswerSelectedEventArgs(bool isCorrect)
+        {
+            IsCorrect = isCorrect;
         }
     }
 }
