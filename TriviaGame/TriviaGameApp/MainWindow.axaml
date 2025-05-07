@@ -9,7 +9,7 @@
 		<ImageBrush Source="Assets/Background.jpg" Stretch="UniformToFill" />
 	</Window.Background>
 	<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="10">
-		<TextBlock Text="Welcome to Trivia!" HorizontalAlignment="Center" FontSize="40"/>
-		<Button Content="START" HorizontalAlignment="Center"/>
+		<TextBlock Text="Welcome to C3 REPO's Trivia!" HorizontalAlignment="Center" FontSize="40"/>
+		<Button Content="LET'S GO!" HorizontalAlignment="Center"/>
 	</StackPanel>
 </Window>
