@@ -7,6 +7,7 @@ using System.Timers;
 using System.Collections.Generic;
 using System.Linq;
 using System.Diagnostics;
+using System.Net;
 
 namespace TriviaGameApp
 {
@@ -49,7 +50,7 @@ namespace TriviaGameApp
         {
             _timeLeft--;
 
-            //Update the UI on the main thread
+            // Update the UI on the main thread
             Dispatcher.UIThread.Post(() =>
             {
                 TimerTextBlock.Text = $"{_timeLeft}";
@@ -57,9 +58,9 @@ namespace TriviaGameApp
                 if (_timeLeft <= 0)
                 {
                     _timer.Stop();
-                    //******************************
-                    TimerTextBlock.Text = "Times up!";
-                    // TODO: Implement event to move to the next question
+
+                    // Trigger the AnswerSelected event to notify the parent control
+                    AnswerSelected?.Invoke(this, new AnswerSelectedEventArgs(false));
                 }
             });
         }
@@ -74,7 +75,7 @@ namespace TriviaGameApp
         private void LoadQuestion()
         {
             //Set the question text
-            QuestionTextBlock.Text = _currentQuestion.question;
+            QuestionTextBlock.Text = WebUtility.HtmlDecode(_currentQuestion.question);
 
             //combing correct and incorrect answers, then shuffle
             var answers = new List<string>(_currentQuestion.incorrect_answers)
@@ -83,10 +84,10 @@ namespace TriviaGameApp
         };
             answers = answers.OrderBy(_ => Guid.NewGuid()).ToList();
 
-            AnswerButton1.Content = answers[0];
-            AnswerButton2.Content = answers[1];
-            AnswerButton3.Content = answers[2];
-            AnswerButton4.Content = answers[3];
+            AnswerButton1.Content = WebUtility.HtmlDecode(answers[0]);
+            AnswerButton2.Content = WebUtility.HtmlDecode(answers[1]);
+            AnswerButton3.Content = WebUtility.HtmlDecode(answers[2]);
+            AnswerButton4.Content = WebUtility.HtmlDecode(answers[3]);
         }
 
         private void OnAnswerClick(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
