@@ -7,24 +7,27 @@ namespace TriviaGameApp
 
     public partial class StartWindow : UserControl
     {
-        private MainWindow? _mainWindow;
+        private readonly MainWindow _mainWindow;
 
 
+        //parameterless constructor
         public StartWindow()
         {
             InitializeComponent();
         }
 
-        public StartWindow(MainWindow mainWindow) : this()
+
+        public StartWindow(MainWindow mainWindow)
         {
+            InitializeComponent();
             _mainWindow = mainWindow;
         }
 
+   
 
-
-        private void OnStartClick(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+        private async void OnStartClick(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
-            _mainWindow?.NavigateToTrivia();
+            await _mainWindow.NavigateToTrivia();
         }
     }
 

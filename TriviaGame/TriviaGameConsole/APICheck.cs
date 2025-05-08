@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
 using System.Text.Json;
@@ -32,11 +32,6 @@ class Program
               Console.WriteLine(q.question);
               Console.WriteLine(q.correct_answer);
 
-
-          }
-
-
-          */
 
        // Console.WriteLine(datastore.Get());
 
