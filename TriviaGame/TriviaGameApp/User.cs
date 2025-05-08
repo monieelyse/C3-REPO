@@ -1,24 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Avalonia.Platform;
-
-namespace TriviaGameApp
-{
-    public class User
+ public class User
     {
-        public string id { get; set; }
-        public int Score { get; set; }
+        public string Username { get; set; }
+        public List<int> Scores { get; set; } = new List<int>();
+        public DateTime LastPlayed { get; set; }
 
-       
-    
-
-    public User(string userName, int score)
+        public User(string username)
         {
-          id = userName;
-            Score = score;
+            Username = username;
+            LastPlayed = DateTime.Now;
         }
-    } 
+
+        public void AddScore(int score)
+        {
+            Scores.Add(score);
+            LastPlayed = DateTime.Now;
+        }
+
+        public double GetAverageScore()
+        {
+            return Scores.Count > 0 ? Scores.Average() : 0;
+        }
+
+        public int GetHighestScore()
+        {
+            return Scores.Count > 0 ? Scores.Max() : 0;
+        }
+
+        public override string ToString()
+        {
+            return $"User: {Username}, Highest Score: {GetHighestScore()}, Average Score: {GetAverageScore():F2}, Last Played: {LastPlayed}";
+        }
+    }
 }

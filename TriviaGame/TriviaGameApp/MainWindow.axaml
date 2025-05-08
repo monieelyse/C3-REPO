@@ -8,5 +8,4 @@
 	<Window.Background>
 		<ImageBrush Source="Assets/Background.jpg" Stretch="UniformToFill" />
 	</Window.Background>
-	<ContentControl x:Name="MainContent" />
 </Window>
