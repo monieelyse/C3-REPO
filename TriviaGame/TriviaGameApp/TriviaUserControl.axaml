@@ -1,0 +1,15 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="TriviaGameApp.TriviaUserControl"
+			 Width="600" Height="400">
+	<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="10">
+		<TextBlock x:Name="TimerTextBlock" Text="30" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Top" />
+		<TextBlock x:Name="QuestionTextBlock" Text="Question Goes Here" FontSize="24" HorizontalAlignment="Center" TextWrapping="Wrap" />
+		<TextBlock x:Name="QuestionNumberTextBlock" HorizontalAlignment="Center" Margin="10" />
+		<TextBlock x:Name="ScoreTextBlock" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" />
+		<Button x:Name="AnswerButton1" Content="Answer 1" HorizontalAlignment="Center" Click="OnAnswerClick"/>
+		<Button x:Name="AnswerButton2" Content="Answer 2" HorizontalAlignment="Center" Click="OnAnswerClick"/>
+		<Button x:Name="AnswerButton3" Content="Answer 3" HorizontalAlignment="Center" Click="OnAnswerClick"/>
+		<Button x:Name="AnswerButton4" Content="Answer 4" HorizontalAlignment="Center" Click="OnAnswerClick"/>
+	</StackPanel>
+</UserControl>
