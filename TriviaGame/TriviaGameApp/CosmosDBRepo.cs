@@ -19,7 +19,7 @@ using static System.Net.WebRequestMethods;
 
         public CosmosDBRepo()
         {
-            _cosmosClient = new CosmosClient("AccountEndpoint=https://vc0501.documents.azure.com:443/;AccountKey=or5KM8QyOOLJmspmhgWOWHFEw0IuYk6RhpqqHod3kMMrHWPQVrf4qoAHFz8MA66JHwXIUeOka9W9ACDb8oJvCA==;");
+            _cosmosClient = new CosmosClient("****REPLACE ME****");
             _container = _cosmosClient.GetContainer("ccad18", "c3repo");
         }
 
