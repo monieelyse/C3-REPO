@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.Cosmos" Version="3.49.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\TriviaGameApp\TriviaGameApp.csproj" />
   </ItemGroup>
 
