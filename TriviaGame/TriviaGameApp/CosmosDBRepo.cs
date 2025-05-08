@@ -7,40 +7,60 @@ using System.Data.SqlClient;
 using Microsoft.Azure.Cosmos;
 using static System.Net.WebRequestMethods;
 
-    namespace TriviaGameApp
-    {
 
-
-    public class CosmosDBRepo
+namespace TriviaGameApp
+{
+    public class CosmosDBService
     {
         private readonly CosmosClient _cosmosClient;
         private readonly Container _container;
 
-
-        public CosmosDBRepo()
+        public CosmosDBService(string connectionString, string databaseName, string containerName)
         {
-            _cosmosClient = new CosmosClient("AccountEndpoint=https://vc0501.documents.azure.com:443/;AccountKey=or5KM8QyOOLJmspmhgWOWHFEw0IuYk6RhpqqHod3kMMrHWPQVrf4qoAHFz8MA66JHwXIUeOka9W9ACDb8oJvCA==;");
-            _container = _cosmosClient.GetContainer("ccad18", "c3repo");
+            _cosmosClient = new CosmosClient(connectionString);
+            _container = _cosmosClient.GetContainer(databaseName, containerName);
         }
 
-        public async Task SaveUserAsync(User user)
+        public async Task AddUserAsync(User user)
+        {
+            await _container.CreateItemAsync(user, new PartitionKey(user.Username));
+        }
+
+        public async Task<User> GetUserAsync(string username)
         {
             try
             {
-                await _container.CreateItemAsync(user, new PartitionKey(user.id));
+                ItemResponse<User> response = await _container.ReadItemAsync<User>(username, new PartitionKey(username));
+                return response.Resource;
             }
-            catch (CosmosException ex)
+            catch (CosmosException ex) when (ex.StatusCode == System.Net.HttpStatusCode.NotFound)
             {
-                Console.WriteLine($"Error writing to Cosmos DB: {ex.Message}");
-                throw;
+                return null;
             }
         }
-        public User Get(User user)
+
+        public async Task<List<User>> GetAllUsersAsync()
         {
-            
-                var response = _container.ReadItemAsync<User>(
-                    id: user.id, partitionKey: new PartitionKey(user.id)).Result;
-            return response.Resource;
+            var query = _container.GetItemQueryIterator<User>();
+            var results = new List<User>();
+
+            while (query.HasMoreResults)
+            {
+                FeedResponse<User> response = await query.ReadNextAsync();
+                results.AddRange(response);
+            }
+
+            return results;
+        }
+
+        public async Task UpdateUserAsync(User user)
+        {
+            await _container.UpsertItemAsync(user, new PartitionKey(user.Username));
+        }
+
+        public async Task DeleteUserAsync(string username)
+        {
+            await _container.DeleteItemAsync<User>(username, new PartitionKey(username));
         }
     }
 }
