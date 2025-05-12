@@ -8,7 +8,7 @@ This is a **trivia game** built in C#. Players can test their knowledge by answe
 ## Features
 - Player name input
 - Difficulty selection (**Easy, Medium, Hard**)
-- Timed responses (60 seconds)
+- Timed responses (30 seconds)
 - Automatic score tracking
 - Play again option
 
