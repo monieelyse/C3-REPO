@@ -16,7 +16,7 @@ This is a **trivia game** built in C#. Players can test their knowledge by answe
 1. **Run the program** 
 2. Enter your **name**.
 3. Select a **difficulty level**.
-4. Answer trivia questions within **60 seconds**.
+4. Answer trivia questions within **30 seconds**.
 5. Score is tracked, and you can **play again** if desired.
 
 
